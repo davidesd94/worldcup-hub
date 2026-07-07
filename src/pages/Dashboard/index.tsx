@@ -1,11 +1,11 @@
 
 import PageTitle from "../../components/ui/PageTitle";
 import Section from "../../components/ui/Section";
-import StatCard from "../../components/cards/StatCard";
 import MatchCard from "../../components/cards/MatchCard";
-import HeroBanner from "../../components/dashboard/HeroBanner";
+import HeroBanner from "../../features/dashboard/HeroBanner";
+import QuickStats from "../../features/dashboard/QuickStats";
 import { matches } from "../../data/matches";
-import { dashboardStats } from "../../data/dashboardStats";
+
 
 const Dashboard = () => {
   return (
@@ -17,19 +17,8 @@ const Dashboard = () => {
 
       <HeroBanner />
 
-      <Section title="Estatísticas">
-        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
-
-    {dashboardStats.map((item) => (
-
-        <StatCard
-            key={item.title}
-            {...item}
-        />
-
-    ))}
-
-</div>
+      <Section title="Resumo da Copa">
+    <QuickStats />
       </Section>
 
       <Section title="🔥 Jogos ao Vivo">
