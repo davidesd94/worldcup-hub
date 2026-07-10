@@ -1,31 +1,15 @@
-export type MatchStatus = "live" | "finished";
+import type { Match } from "../types/match";
 
-export interface LiveMatch {
-  id: number;
-  status: MatchStatus;
 
-  homeTeam: string;
-  awayTeam: string;
-
-  homeScore: number;
-  awayScore: number;
-
-  minute: number;
-
-  possession: number;
-
-  shots: number;
-  corners: number;
-  yellowCards: number;
-}
-
-export const liveMatches: LiveMatch[] = [
+export const liveMatches: Match[] = [
   {
     id: 1,
     status: "live",
 
-    homeTeam: "Brasil",
-    awayTeam: "Argentina",
+    date:"today",
+
+    homeCode: "BR",
+    awayCode: "AR",
 
     homeScore: 2,
     awayScore: 1,
@@ -43,8 +27,10 @@ export const liveMatches: LiveMatch[] = [
     id: 2,
     status: "finished",
 
-    homeTeam: "França",
-    awayTeam: "Japão",
+    date:"tomorrow",
+
+    homeCode: "FR",
+    awayCode: "JP",
 
     homeScore: 1,
     awayScore: 1,
@@ -62,8 +48,10 @@ export const liveMatches: LiveMatch[] = [
     id: 3,
     status: "live",
 
-    homeTeam: "Portugal",
-    awayTeam: "México",
+    date:"today",
+
+    homeCode: "PT",
+    awayCode: "MX",
 
     homeScore: 0,
     awayScore: 0,

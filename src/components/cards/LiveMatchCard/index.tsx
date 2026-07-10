@@ -1,15 +1,16 @@
 import Card from "../../ui/Card";
+import TeamBadge from "../../ui/TeamBadge";
 import { FaFutbol } from "react-icons/fa";
 import { GiSoccerField } from "react-icons/gi";
 import { MdOutlineSportsSoccer } from "react-icons/md";
-import type { LiveMatch } from "../../../data/liveMatches";
+import type { Match } from "../../../types/match";
 
-type Props = LiveMatch;
+type Props = Match;
 
 const LiveMatchCard = ({
   status,
-  homeTeam,
-  awayTeam,
+  homeCode,
+  awayCode,
   homeScore,
   awayScore,
   minute,
@@ -52,7 +53,7 @@ const LiveMatchCard = ({
       <div className="mt-6 flex items-center justify-between">
 
         <h2 className="text-xl font-bold">
-          🇧🇷 {homeTeam}
+          <TeamBadge code={homeCode} />
         </h2>
 
         <span className="text-3xl font-black">
@@ -60,7 +61,7 @@ const LiveMatchCard = ({
         </span>
 
         <h2 className="text-xl font-bold">
-          🇦🇷 {awayTeam}
+          <TeamBadge code={awayCode} />
         </h2>
 
       </div>
