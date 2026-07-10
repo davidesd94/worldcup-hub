@@ -1,43 +1,39 @@
-
 import PageTitle from "../../components/ui/PageTitle";
 import Section from "../../components/ui/Section";
-import MatchCard from "../../components/cards/MatchCard";
+
 import HeroBanner from "../../features/dashboard/HeroBanner";
 import QuickStats from "../../features/dashboard/QuickStats";
-import { matches } from "../../data/matches";
-
+import LiveMatches from "../../features/dashboard/LiveMatches";
+import GroupsPreview from "../../features/dashboard/GroupsPreview";
 
 const Dashboard = () => {
   return (
-    <>
+    <div className="space-y-8">
       <PageTitle
-        title="Bem-vindo 👋"
-        subtitle="Acompanhe a Copa do Mundo em tempo real."
+        title="Dashboard"
+        subtitle="Acompanhe tudo sobre a Copa do Mundo 2026"
       />
 
       <HeroBanner />
 
       <Section title="Resumo da Copa">
-    <QuickStats />
+        <QuickStats />
       </Section>
 
-      <Section title="🔥 Jogos ao Vivo">
+      <div className="grid gap-6 lg:grid-cols-3">
+        <div className="lg:col-span-2">
+          <Section title="Jogos ao Vivo">
+            <LiveMatches />
+          </Section>
+        </div>
 
-    <div className="grid gap-6 lg:grid-cols-2">
-
-        {matches.map((match) => (
-
-            <MatchCard
-                key={match.id}
-                {...match}
-            />
-
-        ))}
-
+        <div>
+          <Section title="Grupo A">
+            <GroupsPreview />
+          </Section>
+        </div>
+      </div>
     </div>
-
-</Section>
-    </>
   );
 };
 

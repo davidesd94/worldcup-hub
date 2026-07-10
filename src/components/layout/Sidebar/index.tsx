@@ -1,74 +1,124 @@
 import {
-  FaChartPie,
+  FaHome,
   FaFutbol,
   FaGlobe,
-  FaUsers,
+  FaChartBar,
   FaStar,
 } from "react-icons/fa";
 
-const menu = [
+import { NavLink } from "react-router-dom";
+
+const menuItems = [
   {
-    icon: <FaChartPie />,
-    title: "Dashboard",
+    label: "Dashboard",
+    icon: <FaHome />,
+    path: "/",
   },
   {
+    label: "Jogos",
     icon: <FaFutbol />,
-    title: "Jogos",
+    path: "/matches",
   },
   {
+    label: "Seleções",
     icon: <FaGlobe />,
-    title: "Grupos",
+    path: "/teams",
   },
   {
-    icon: <FaUsers />,
-    title: "Seleções",
+    label: "Grupos",
+    icon: <FaChartBar />,
+    path: "/groups",
   },
   {
-    icon: <FaChartPie />,
-    title: "Estatísticas",
-  },
-  {
+    label: "Favoritos",
     icon: <FaStar />,
-    title: "Favoritos",
+    path: "/favorites",
   },
 ];
 
+<nav className="space-y-2">
+
+{menuItems.map((item) => (
+
+    <NavLink
+
+    key={item.label}
+
+    to={item.path}
+
+    className={({ isActive }) =>
+
+        `flex items-center gap-4 rounded-xl p-4 transition-all duration-300 ${
+            isActive
+                ? "bg-green-500 text-white shadow-lg"
+                : "text-slate-400 hover:bg-slate-800 hover:text-white"
+        }`
+
+    }
+
+>
+
+    <span>{item.icon}</span>
+
+    <span>{item.label}</span>
+
+</NavLink>
+
+))}
+
+</nav>
+
 const Sidebar = () => {
   return (
-    <aside className="w-72 border-r border-slate-800 bg-slate-900">
+    <aside className="h-screen w-72 border-r border-slate-800 bg-slate-950 p-6">
+      <h1 className="mb-10 text-2xl font-bold text-green-400">
+        ⚽ WorldCup Hub
+      </h1>
 
-      <div className="border-b border-slate-800 p-8">
+     <NavLink
+        to="/matches"
+        className={({ isActive }) =>
+        isActive
+        ? "bg-green-500 text-white"
+        : "text-slate-400"
+      }
+      >
+      Jogos
+      </NavLink>
 
-        <h1 className="text-2xl font-bold">
+      <NavLink
+        to="/teams"
+        className={({ isActive }) =>
+        isActive
+        ? "bg-green-500 text-white"
+        : "text-slate-400"
+      }
+      >
+      Seleções
+      </NavLink>
 
-          🌍 WorldCup Hub
+      <NavLink
+        to="/groups"
+        className={({ isActive }) =>
+        isActive
+        ? "bg-green-500 text-white"
+        : "text-slate-400"
+      }
+      >
+      Grupos
+      </NavLink>
 
-        </h1>
-
-      </div>
-
-      <nav className="p-5">
-
-        {menu.map((item) => (
-
-          <button
-            key={item.title}
-            className="mb-2 flex w-full items-center gap-4 rounded-xl p-4 text-left transition hover:bg-slate-800"
-          >
-            <span className="text-green-400">
-
-              {item.icon}
-
-            </span>
-
-            {item.title}
-
-          </button>
-
-        ))}
-
-      </nav>
-
+      <NavLink
+        to="/favorites"
+        className={({ isActive }) =>
+        isActive
+        ? "bg-green-500 text-white"
+        : "text-slate-400"
+      }
+      >
+      Favoritos
+      </NavLink>
+      
     </aside>
   );
 };
