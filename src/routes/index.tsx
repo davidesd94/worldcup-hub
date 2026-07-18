@@ -14,6 +14,9 @@ import Statistics from "../pages/Statistics";
 
 import Favorites from "../pages/Favorites";
 
+import TestApi from "../pages/TestApi";
+
+
 export const router = createBrowserRouter([
   {
     element: <AppLayout />,
@@ -47,6 +50,11 @@ export const router = createBrowserRouter([
       {
         path: "/favorites",
         element: <Favorites />,
+      },
+
+      {
+        path: "/test-api",
+        element: <TestApi />,
       },
     ],
   },

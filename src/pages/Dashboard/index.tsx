@@ -1,10 +1,13 @@
 import PageTitle from "../../components/ui/PageTitle";
 import Section from "../../components/ui/Section";
-
+import RecentResults from "../../features/dashboard/RecentResults";
 import HeroBanner from "../../features/dashboard/HeroBanner";
 import QuickStats from "../../features/dashboard/QuickStats";
 import LiveMatches from "../../features/dashboard/LiveMatches";
 import GroupsPreview from "../../features/dashboard/GroupsPreview";
+
+console.log(import.meta.env.VITE_API_URL);
+console.log(import.meta.env.VITE_API_KEY);
 
 const Dashboard = () => {
   return (
@@ -26,6 +29,8 @@ const Dashboard = () => {
             <LiveMatches />
           </Section>
         </div>
+
+        <RecentResults />
 
         <div>
           <Section title="Grupo A">

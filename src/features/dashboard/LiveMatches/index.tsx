@@ -3,6 +3,7 @@ import LiveMatchCard from "../../../components/cards/LiveMatchCard";
 import { useMatches } from "../../../hooks/useMatches";
 import FilterButton from "../../../components/ui/FilterButton";
 import { getTeam } from "../../../utils/getTeam";
+import Input from "../../../components/ui/Input";
 
 const LiveMatches = () => {
 
@@ -49,25 +50,11 @@ return (
   <div className="space-y-6">
 
     {/* Campo de busca */}
-    <input
-      type="text"
-      placeholder="Buscar seleção..."
-      value={search}
-      onChange={(e) => setSearch(e.target.value)}
-      className="
-        w-full
-        rounded-xl
-        border
-        border-slate-700
-        bg-slate-900
-        px-4
-        py-3
-        text-white
-        outline-none
-        transition
-        focus:border-green-500
-      "
-    />
+    <Input
+  placeholder="Buscar seleção..."
+  value={search}
+  onChange={(e) => setSearch(e.target.value)}
+/>
 
     {/* Botões */}
     <div className="flex gap-3">

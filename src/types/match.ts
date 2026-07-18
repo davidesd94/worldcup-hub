@@ -3,21 +3,11 @@ export type MatchStatus = "live" | "finished";
 export interface Match {
   id: number;
 
-  status: MatchStatus;
-
-  date: string;
-
-  homeCode: string;
-  awayCode: string;
+  homeTeam: string;
+  awayTeam: string;
 
   homeScore: number;
   awayScore: number;
 
-  minute: number;
-
-  possession: number;
-
-  shots: number;
-  corners: number;
-  yellowCards: number;
+  status: MatchStatus;
 }

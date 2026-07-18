@@ -8,6 +8,7 @@ import Teams from "../pages/Teams";
 import Groups from "../pages/Groups";
 import Statistics from "../pages/Statistics";
 import Favorites from "../pages/Favorites";
+import TestApi from "../pages/TestApi";
 
 const AppRoutes = () => {
   return (
@@ -20,6 +21,7 @@ const AppRoutes = () => {
           <Route path="/groups" element={<Groups />} />
           <Route path="/statistics" element={<Statistics />} />
           <Route path="/favorites" element={<Favorites />} />
+          <Route path="/test-api" element={<TestApi />} />
         </Routes>
       </MainLayout>
     </BrowserRouter>
